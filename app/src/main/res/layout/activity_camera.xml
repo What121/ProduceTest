@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <com.bestom.producetest.view.CameraView
+        android:id="@+id/camera_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/cam_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/front_camera"
+        android:textColor="@color/colorRed"
+        android:textSize="28sp" />
+
+    <Button
+        android:id="@+id/switch_btn"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/switch_camera"
+        android:textColor="@color/colorWhite"
+        android:textSize="28sp" />
+
+    <Button
+        android:id="@+id/switch2cameras_btn"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_toRightOf="@id/switch_btn"
+        android:layout_alignTop="@+id/switch_btn"
+        android:text="@string/switch_2cameras"
+        android:textColor="@color/colorWhite"
+        android:textSize="28sp" />
+
+    <Button
+        android:id="@+id/close_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:text="@string/close"
+        android:textColor="@color/colorWhite"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/err_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="no camera"
+        android:textColor="@color/colorRed"
+        android:textSize="32sp"
+        android:visibility="gone" />
+</RelativeLayout>

@@ -1,0 +1,2 @@
+**1023**修改CameraTest的预览控件surfaceview->textureview
+**1024**添加rk3399_server同时打开双摄像头单独配置及需求

@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">ProductionTest</string>
+
+    <string name="chip_version">CPU Model：</string>
+    <string name="kernel_version">Kernel Version：</string>
+    <string name="firmware_version">Firmware Version：</string>
+    <string name="system_version">System Version：</string>
+    <string name="mac_address">Mac Address：</string>
+    <string name="sn_num">SN：</string>
+    <string name="mem_total">DDR：</string>
+    <string name="mem_free">Available Memory：</string>
+    <string name="ext_storage">Built-in Storage：</string>
+    <string name="wifi_test">Wifi Test:</string>
+    <string name="ethernet_test">Ethernet Test:</string>
+    <string name="bluetooth_test">BT Test:</string>
+    <string name="sd_card_test">TF card Test:</string>
+    <string name="usb_host_test">U Disk Test:</string>
+    <string name="serial_port_test">Uart Test:</string>
+    <string name="usb1_test">USB1 Test:</string>
+    <string name="usb2_test">USB2 Test:</string>
+
+    <string name="speaker_title">Speaker Test</string>
+    <string name="speaker_play">Play</string>
+    <string name="speaker_pause">Pause</string>
+    <string name="left_channel">Left</string>
+    <string name="right_channel">Right</string>
+
+    <string name="record_title">Record Test</string>
+    <string name="record_play">Test</string>
+    <string name="record_replay">Retest</string>
+    <string name="no_camera">No camera!</string>
+    <string name="record_success">The recording success</string>
+    <string name="record_error">The recording failure</string>
+
+    <string name="key_title">Physical Key Test</string>
+    <string name="key_back">Back</string>
+    <string name="key_volume_less">VOL-</string>
+    <string name="key_volume_add">VOL+</string>
+
+    <string name="lcd_test">LCD Test</string>
+    <string name="camera_test">Camera Test</string>
+    <string name="old_test">Aging Test</string>
+    <string name="sensor_test">Sensor</string>
+    <string name="close">Close</string>
+    <string name="gpio">GPIO-NET</string>
+    <string name="nfc">NFC</string>
+    <string name="uninstall">Uninstall</string>
+    <string name="close_lcd_btn">Close LCD Test</string>
+    <string name="close_old_btn">Close Aging Test</string>
+    <string name="residue">Residue</string>
+    <string name="hour">Hour</string>
+    <string name="minute">Minute</string>
+    <string name="seconds">Seconds</string>
+
+    <string name="switch_camera">Switch Camera</string>
+    <string name="switch_2cameras">2Camera</string>
+    <string name="back_camera">Back Camera</string>
+    <string name="front_camera">Front Camera</string>
+    <string name="gsensor">G Sensor:</string>
+    <string name="lightsensor">Light Sensor:</string>
+    <string name="test_instructions">Test Instructions</string>
+    <string name="wifi_self_test">Wifi：Self Test</string>
+    <string name="ble_self_test">Ble：Self Test</string>
+    <string name="tf_self_test_hint">TF Card：Please insert TF card, automatic detection after 3 seconds</string>
+    <string name="u_self_test_hint">U Disk：Please insert the U disk, and it will detect automatically after 3 seconds</string>
+
+    <string name="pass">PASS</string>
+    <string name="ng">NG</string>
+
+    <string name="result_dialog">Test Result</string>
+    <string name="result_dialog_screen">LCD</string>
+    <string name="result_dialog_leftsound">leftsound</string>
+    <string name="result_dialog_rightsound">rightsound</string>
+    <string name="result_dialog_micro">MIC</string>
+    <string name="result_dialog_frontcamera">FCAM</string>
+    <string name="result_dialog_backcamera">backcamera</string>
+    <string name="result_dialog_lightsensor">Lightsensor</string>
+    <string name="result_dialog_gsensor">Gsensor</string>
+    <string name="result_dialog_nfc">NFC</string>
+    <string name="result_dialog_nfclight">NFClight</string>
+    <string name="result_dialog_powerkey">powerkey</string>
+
+
+</resources>
