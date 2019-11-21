@@ -22,8 +22,6 @@ public class App extends Application {
 
     @Override
     public void onCreate() {
-
-
         //初始化测试项目配置
         Config();
 
@@ -39,7 +37,7 @@ public class App extends Application {
 
     @TargetApi(Build.VERSION_CODES.N)
     private void Config(){
-        ConfigPath=this.getDataDir().getAbsolutePath()+ File.separator+configfilename;
+        ConfigPath=this.getFilesDir().getAbsolutePath()+ File.separator+configfilename;
         File configFile = new File(ConfigPath);
         if(!configFile.exists()){
             //初始化测试视频文件路径

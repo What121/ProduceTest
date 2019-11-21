@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
- * Created by cs on 2017/6/16.
+ * Created by cs on 2018/6/16.
  * SharedPreferences存储数据方式工具类
  */
 
