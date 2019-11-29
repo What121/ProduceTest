@@ -455,6 +455,15 @@
             android:textSize="22sp" />
 
         <Button
+            android:id="@+id/video_test_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/video_test"
+            android:textColor="@color/colorWhite"
+            android:textSize="22sp" />
+
+        <Button
             android:id="@+id/uninstall_btn"
             android:layout_width="0dp"
             android:layout_height="match_parent"

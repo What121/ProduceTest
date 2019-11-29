@@ -1,10 +1,7 @@
 package com.bestom.producetest.service;
 
-import android.app.Activity;
 import android.text.TextUtils;
 import android.util.Log;
-
-import com.bestom.producetest.utils.ProperTiesUtils;
 
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft;

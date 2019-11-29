@@ -38,6 +38,7 @@
     <string name="key_volume_add">音量加</string>
 
     <string name="lcd_test">LCD 测试</string>
+    <string name="video_test">视频测试</string>
     <string name="camera_test">摄像头测试</string>
     <string name="old_test">老化测试</string>
     <string name="sensor_test">传感器测试</string>

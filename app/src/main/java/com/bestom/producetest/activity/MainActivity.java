@@ -50,7 +50,10 @@ import com.bestom.producetest.view.TestView;
 import com.bestom.producetest.view.VUMeter;
 
 
+import org.java_websocket.enums.ReadyState;
+
 import java.io.File;
+import java.security.Policy;
 import java.util.List;
 
 import static com.bestom.producetest.base.App.ConfigPath;
@@ -99,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button sensorTestBtn;
     Button nfcTestBtn;
     Button gpioTestBtn;
+    Button videoTestBtn;
     Button uninstallBtn;
 
     // wifi
@@ -253,7 +257,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Manifest.permission.CAMERA};
         PermissionsUtils.getInstance().chekPermissions(this, permissions, permissionsResult);
         //连接服务器
-        App.wsClient.connect();
+        if (App.wsClient.getReadyState()== ReadyState.CLOSED||App.wsClient.getReadyState()== ReadyState.CLOSING){
+            App.wsClient.reconnect();
+        }else {
+            App.wsClient.connect();
+        }
         initView();
         initData();
 
@@ -329,6 +337,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sensorTestBtn = (Button) findViewById(R.id.sensor_test_btn);
         nfcTestBtn = (Button) findViewById(R.id.nfc_test_btn);
         gpioTestBtn= (Button) findViewById(R.id.gpio_test_btn);
+        videoTestBtn= findViewById(R.id.video_test_btn);
         uninstallBtn = (Button) findViewById(R.id.uninstall_btn);
 
         speakerPlayBtn.setOnClickListener(this);
@@ -341,6 +350,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sensorTestBtn.setOnClickListener(this);
         nfcTestBtn.setOnClickListener(this);
         gpioTestBtn.setOnClickListener(this);
+        videoTestBtn.setOnClickListener(this);
         uninstallBtn.setOnClickListener(this);
     }
 
@@ -353,6 +363,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sensorTestBtn.setVisibility(Integer.valueOf(ProperTiesUtils.getProperties(mActivity,configfilename,"SensorTest"))==1?View.VISIBLE:View.GONE);
         nfcTestBtn.setVisibility(Integer.valueOf(ProperTiesUtils.getProperties(mActivity,configfilename,"NfcTest"))==1?View.VISIBLE:View.GONE);
         gpioTestBtn.setVisibility(Integer.valueOf(ProperTiesUtils.getProperties(mActivity,configfilename,"GpioTest"))==1?View.VISIBLE:View.GONE);
+        videoTestBtn.setVisibility(Integer.valueOf(ProperTiesUtils.getProperties(mActivity,configfilename,"VideoTest"))==1?View.VISIBLE:View.GONE);
     }
 
     /**
@@ -454,6 +465,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.gpio_test_btn:    //gpio&network
                 Intent gpiointent = new Intent(this, GpioActivity.class);
                 startActivityForResult(gpiointent,000);
+                break;
+            case R.id.video_test_btn:
+                startActivity(new Intent(this,VideoActivity.class));
                 break;
             case R.id.uninstall_btn: // 关闭
                 //uninstallPackage("com.bestom.producetest");

@@ -1,6 +1,7 @@
 package com.bestom.producetest.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -8,36 +9,52 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.bestom.producetest.R;
-import com.bestom.producetest.utils.AppUtil;
+import com.bestom.producetest.utils.ProperTiesUtils;
 import com.bestom.producetest.utils.Util;
+
+import static com.bestom.producetest.base.App.configfilename;
 
 public class VideoActivity extends AppCompatActivity {
     private static final String TAG = VideoActivity.class.getSimpleName();
-    private static final String videoUrl = "data/time.mp4";
+
+    private Context mContext;
+    private Activity mActivity;
 
     TextView mCountdownTv;
     Button closeBtn;
     VideoView videoView;
 
     private long leftTime = 8 * 60 * 60; // 8小时
+    private static final String videoUrl = "data/time.mp4";
     private Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (AppUtil.hasNavBar(this)) {//隐藏底部导航栏
-            AppUtil.hideBottomUIMenu(this);
-        }
+        WindowManager.LayoutParams params = getWindow().getAttributes();
+        params.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE;
+        getWindow().setAttributes(params);
         setContentView(R.layout.activity_video);
+
+        mContext=this;
+        mActivity=this;
+
+
         initView();
+        if (Integer.valueOf(ProperTiesUtils.getProperties(mActivity,configfilename,"VideoTestTime")) ==0)
+            leftTime=0;
         //开始倒计时
-        mHandler.postDelayed(countdownRunnable, 1000);
+        if (leftTime>0)
+            mHandler.postDelayed(countdownRunnable, 1000);
+        else
+            mCountdownTv.setText("no time limit");
     }
 
     /**

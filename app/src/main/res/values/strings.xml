@@ -39,6 +39,7 @@
 
     <string name="lcd_test">LCD Test</string>
     <string name="camera_test">Camera Test</string>
+    <string name="video_test">Video Test</string>
     <string name="old_test">Aging Test</string>
     <string name="sensor_test">Sensor</string>
     <string name="close">Close</string>

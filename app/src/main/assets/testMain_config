@@ -14,6 +14,9 @@ NfcLightTest = 1
 GpioTest     = 0
 gpioTest     = 1
 NetTest      = 1
+VideoTest      = 1
+#1?limit time:no limit
+VideoTestTime      = 0
 
 #T103≈‰÷√
 T103_usbgpio = 0
