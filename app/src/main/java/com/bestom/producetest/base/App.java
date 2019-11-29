@@ -18,7 +18,9 @@ public class App extends Application {
 
     // config file
     public static String configfilename="testMain_config";
+    public static String videoname="time.mp4";
     public static String ConfigPath;
+    public static String VideoPath;
 
     @Override
     public void onCreate() {
@@ -38,14 +40,33 @@ public class App extends Application {
     @TargetApi(Build.VERSION_CODES.N)
     private void Config(){
         ConfigPath=this.getFilesDir().getAbsolutePath()+ File.separator+configfilename;
+        VideoPath=this.getFilesDir().getAbsolutePath()+ File.separator+videoname;
         File configFile = new File(ConfigPath);
         if(!configFile.exists()){
-            //初始化测试视频文件路径
+            //初始化配置文件路径
             initConfig();
         }else {
             Log.d(TAG, "Config: file exit !!!");
         }
+        File videoFile = new File(VideoPath);
+        if (!videoFile.exists()){
+            //初始化测试视频文件路径
+            initVideo();
+        }else {
+            Log.d(TAG, "Test Video File: file exit !!!");
+        }
     }
+
+    private void initVideo(){
+        boolean copyResult = FileUtils.copyFromAssetToData(this, videoname, true);
+        if(copyResult){
+            // chmod 777 configfile
+            FileUtils.chmodDataFilePath(this, VideoPath);
+        }else{
+            Log.e(TAG, "initVideo: 初始化copyFromAsset()失败!! 完成默认初始化赋值" );
+        }
+    }
+
 
     /**
      * 配置文件

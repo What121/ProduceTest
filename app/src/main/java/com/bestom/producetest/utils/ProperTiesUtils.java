@@ -26,7 +26,14 @@ public class ProperTiesUtils {
             //方法二：通过class获取setting.properties的FileInputStream
 //            InputStream in = PropertiesUtill.class.getResourceAsStream("/assets/  setting.properties "));
             //方法三：直接获取文件的properties的FileInputStream
-            String filepath = activity.getDataDir().getAbsolutePath()+ File.separator+filename;
+            String basePath = null;
+            if (Build.VERSION.SDK_INT>=24){
+                basePath = activity.getFilesDir().getAbsolutePath();
+            }else {
+                basePath = activity.getDataDir().getAbsolutePath();
+            }
+
+            String filepath = basePath + File.separator+filename;
             in=new FileInputStream(filepath);
 
             props.load(in);
@@ -53,7 +60,12 @@ public class ProperTiesUtils {
             //方法二：通过class获取setting.properties的FileInputStream
 //            InputStream in = PropertiesUtill.class.getResourceAsStream("/assets/  setting.properties "));
             //方法三：直接获取文件的properties的FileInputStream
-            String filepath = context.getDataDir().getAbsolutePath()+ File.separator+filename;
+            String filepath;
+            if (Build.VERSION.SDK_INT>=24){
+                filepath = context.getFilesDir().getAbsolutePath()+ File.separator+filename;
+            }else {
+                filepath = context.getDataDir().getAbsolutePath()+ File.separator+filename;
+            }
             in=new FileInputStream(filepath);
 
             props.load(in);

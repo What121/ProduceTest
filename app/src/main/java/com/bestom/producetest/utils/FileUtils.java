@@ -115,7 +115,13 @@ public class FileUtils {
 	public static boolean copyFromAssetToData(Context context, String fileName, boolean recreate) {
 		byte[] buf = new byte[20480];
 		try {
-			File fileDir = context.getDataDir();
+			File fileDir;
+			if ( Build.VERSION.SDK_INT >=24){
+				fileDir = context.getFilesDir();
+			}else {
+				fileDir = context.getDataDir();
+			}
+
 			if(!fileDir.exists()){
 				fileDir.mkdirs();
 			}

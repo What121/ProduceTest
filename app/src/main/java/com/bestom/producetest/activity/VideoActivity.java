@@ -16,8 +16,11 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.bestom.producetest.R;
+import com.bestom.producetest.base.App;
 import com.bestom.producetest.utils.ProperTiesUtils;
 import com.bestom.producetest.utils.Util;
+
+import java.io.File;
 
 import static com.bestom.producetest.base.App.configfilename;
 
@@ -32,7 +35,7 @@ public class VideoActivity extends AppCompatActivity {
     VideoView videoView;
 
     private long leftTime = 8 * 60 * 60; // 8小时
-    private static final String videoUrl = "data/time.mp4";
+    private String videoUrl = "data/time.mp4";
     private Handler mHandler = new Handler();
 
     @Override
@@ -46,8 +49,10 @@ public class VideoActivity extends AppCompatActivity {
         mContext=this;
         mActivity=this;
 
+        checkfile();
 
         initView();
+
         if (Integer.valueOf(ProperTiesUtils.getProperties(mActivity,configfilename,"VideoTestTime")) ==0)
             leftTime=0;
         //开始倒计时
@@ -88,6 +93,12 @@ public class VideoActivity extends AppCompatActivity {
                 videoView.start();
             }
         });
+    }
+
+    private void checkfile(){
+        if (! new File(videoUrl).exists()){
+            videoUrl= App.VideoPath;
+        }
     }
 
     private Runnable countdownRunnable = new Runnable() {
